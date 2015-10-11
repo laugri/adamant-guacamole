@@ -1,4 +1,19 @@
-# Exercice
+# Documentation
+
+This project lets you access the users, their badges and 3d models via a REST API.
+
+The API is based on [Django REST Framework](http://www.django-rest-framework.org/).
+
+## Browse the API
+
+Just run the django development server:
+
+    python3 manage.py runserver
+
+Go to `localhost:8000`. That's it.
+
+
+# Original Instructions
 
 - Partir d'une structure Django vierge
 - Rajouter les users + un model Model3d() qui représente un modèle 3d
