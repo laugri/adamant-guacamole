@@ -15,6 +15,19 @@ class User(models.Model):
     date_joined = models.DateField(default=timezone.now)
     badges = models.ManyToManyField(Badge, through='Milestone')
 
+    def seniority(self):
+        """ Returns the seniority of the member in days. """
+        return (timezone.now().date() - self.date_joined).days
+
+    def models(self):
+        """ Returns the user's 3D models. """
+        from sketchfab.models.model3d import Model3D
+        return Model3D.objects(user=self)
+
+    def number_of_models(self):
+        """ Returns the number of 3D models a user has. """
+        return len(self.models())
+
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     """ UserSerializer is used to serialize data for the REST API endpoint. """
