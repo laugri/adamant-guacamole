@@ -22,11 +22,18 @@ class User(models.Model):
     def models(self):
         """ Returns the user's 3D models. """
         from sketchfab.models.model3d import Model3D
-        return Model3D.objects(user=self)
+        return Model3D.objects.filter(user=self)
 
     def number_of_models(self):
         """ Returns the number of 3D models a user has. """
         return len(self.models())
+
+    def achievements(self):
+        """ Gets the user's achievements.
+            Returns:
+                A list of the user's badge names.
+        """
+        return [badge.name for badge in self.badges.all()]
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
