@@ -11,7 +11,7 @@ class Model3D(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
     date_created = models.DateField(default=timezone.now)
-    views = models.IntegerField()
+    views = models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
