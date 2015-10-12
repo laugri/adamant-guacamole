@@ -2,7 +2,9 @@
 
 This project lets you access the users, their badges and 3d models via a REST API.
 
-The API is based on [Django REST Framework](http://www.django-rest-framework.org/).
+The API is based on [Django REST Framework](http://www.django-rest-framework.org/). You will need to get it to run this demo.
+
+    pip3 install djangorestframework markdown django-filter
 
 ## Browse the API
 
@@ -11,6 +13,11 @@ Just run the django development server:
     python3 manage.py runserver
 
 Go to `localhost:8000`. That's it.
+
+
+- You can then see users, models and badges. A user's achievments (badges) can be seen in the API user endpoint.
+- Badges are given to users using Django signals (see `signals.py` for an arbitrary example of systematic check and upadte).
+- Achievement checks and badge assignements are managed by the `BadgeManager` class.
 
 
 # Original Instructions
