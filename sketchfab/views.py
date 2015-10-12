@@ -1,8 +1,8 @@
 from rest_framework import viewsets
 
-from sketchfab.models.user import User, UserSerializer
-from sketchfab.models.model3d import Model3D, Model3DSerializer
 from sketchfab.models.badge import Badge, BadgeSerializer
+from sketchfab.models.model3d import Model3D, Model3DSerializer
+from sketchfab.models.user import User, UserSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
