@@ -1,18 +1,6 @@
 # Documentation
 
-This project lets you access the users, their badges and 3d models via a REST API, and shows and implementation of automatic badge management.
-
-The API is based on [Django REST Framework](http://www.django-rest-framework.org/). You will need to get it to run this demo.
-
-    pip3 install djangorestframework markdown django-filter
-
-## Browse the API
-
-Just run the django development server:
-
-    python3 manage.py runserver
-
-Go to `localhost:8000`. That's it.
+This demo shows an implementation of automatic badge management and lets you access users, badges and 3d models via a REST API.
 
 
 ## About the demo
@@ -23,6 +11,19 @@ Go to `localhost:8000`. That's it.
   - The class is written so that each badge obtention condition can be checked independently.
   - Badges are given to users using Django signals (see `signals.py` for an arbitrary example of systematic check and update).
   - Currently, the demo checks all conditions on every User save(), but could be extended to perform specific checks on specific events.
+
+
+## Browse the API
+
+The API is based on [Django REST Framework](http://www.django-rest-framework.org/). Install it to run this demo.
+
+    pip3 install djangorestframework markdown django-filter
+
+Then just run the django development server.
+
+    python3 manage.py runserver
+
+Go to `localhost:8000`. That's it.
 
 
 # Original Instructions
