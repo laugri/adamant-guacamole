@@ -16,19 +16,28 @@ class BadgeManager(object):
     def __init__(self, user):
         self.user = user
 
+    def is_collector(self):
+        return self.user.number_of_models() >= 5
+
+    def is_pionneer(self):
+        return self.user.seniority() >= 365
+
+    def is_star(self):
+        user_models = self.user.models()
+        return (user_models and
+                max(user_models, key=lambda x: x.views).views > 1000)
+
     def check_achievements(self):
         """ This method checks the user's achievements and lists them. """
         achievements = ['Newcomer']
 
-        if self.user.number_of_models() >= 5:
+        if self.is_collector():
             achievements.append('Collector')
 
-        if self.user.seniority() >= 365:
+        if self.is_pionneer():
             achievements.append('Pionneer')
 
-        user_models = self.user.models()
-        if (user_models and
-                max(user_models, key=lambda x: x.views).views > 1000):
+        if self.is_star():
             achievements.append('Star')
 
         return achievements
