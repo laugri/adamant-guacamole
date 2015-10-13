@@ -1,6 +1,6 @@
 # Documentation
 
-This project lets you access the users, their badges and 3d models via a REST API.
+This project lets you access the users, their badges and 3d models via a REST API, and shows and implementation of automatic badge management.
 
 The API is based on [Django REST Framework](http://www.django-rest-framework.org/). You will need to get it to run this demo.
 
@@ -15,9 +15,14 @@ Just run the django development server:
 Go to `localhost:8000`. That's it.
 
 
-- You can then see users, models and badges. A user's achievments (badges) can be seen in the API user endpoint.
-- Badges are given to users using Django signals (see `signals.py` for an arbitrary example of systematic check and upadte).
+## About the demo
+
+- The demo is not meant to be a production-ready API covering all cases, but rather focuses on showing the design and patterns used.
+- You can then see users, models and badges using the corresponding endpoints. A user's achievments (badges) can be seen in the API user endpoint.
 - Achievement checks and badge assignements are managed by the `BadgeManager` class.
+  - The class is written so that each badge obtention condition can be checked independently.
+  - Badges are given to users using Django signals (see `signals.py` for an arbitrary example of systematic check and update).
+  - Currently, the demo checks all conditions on every User save(), but could be extended to perform specific checks on specific events.
 
 
 # Original Instructions
