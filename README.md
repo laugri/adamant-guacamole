@@ -6,7 +6,7 @@ This demo shows an implementation of automatic badge management and lets you acc
 ## About the demo
 
 - The demo is not meant to be a production-ready API covering all cases, but rather focuses on showing the design and patterns used.
-- You can then see users, models and badges using the corresponding endpoints. A user's achievments (badges) can be seen in the API user endpoint.
+- You can see users, models and badges using the corresponding API endpoints. A user's achievments (badges) can be seen at the API User endpoint.
 - Achievement checks and badge assignements are managed by the `BadgeManager` class.
   - The class is written so that each badge obtention condition can be checked independently.
   - Badges are given to users using Django signals (see `signals.py` for an arbitrary example of systematic check and update).
